@@ -30,11 +30,11 @@ angular.module('starter', ['ionic', 'satellizer', 'starter.controllers'])
 
     if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
       $authProvider.cordova = true;
-      commonConfig.redirectUri = 'http://localhost/';
+      commonConfig.redirectUri = 'http://localhost:8100/';
     }
 
     $authProvider.facebook(angular.extend({}, commonConfig, {
-      clientId: '603122136500203',
+      clientId: '1735604586658568',
       url: 'http://localhost:3000/auth/facebook'
     }));
 

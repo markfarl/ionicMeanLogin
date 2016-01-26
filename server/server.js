@@ -68,7 +68,15 @@ mongoose.connection.on('error', function(err) {
 var app = express();
 
 app.set('port', process.env.PORT || 3000);
-app.use(cors());
+//app.use(cors());
+app.use(function(req, res, next) {
+
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8100');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -544,6 +552,7 @@ app.post('/auth/facebook', function(req, res) {
     client_secret: config.FACEBOOK_SECRET,
     redirect_uri: req.body.redirectUri
   };
+  console.log(params);
 
   // Step 1. Exchange authorization code for access token.
   request.get({ url: accessTokenUrl, qs: params, json: true }, function(err, response, accessToken) {
