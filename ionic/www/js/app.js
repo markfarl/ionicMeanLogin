@@ -35,16 +35,16 @@ angular.module('starter', ['ionic', 'satellizer', 'starter.controllers'])
 
     $authProvider.facebook(angular.extend({}, commonConfig, {
       clientId: '1735604586658568',
-      url: 'http://localhost:3000/auth/facebook'
+      url: 'http://localhost:80/auth/facebook'
     }));
 
     $authProvider.twitter(angular.extend({}, commonConfig, {
-      url: 'http://localhost:3000/auth/twitter'
+      url: 'http://46.22.136.60:80/auth/twitter'
     }));
 
     $authProvider.google(angular.extend({}, commonConfig, {
       clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com',
-      url: 'http://localhost:3000/auth/google'
+      url: 'http://46.22.136.60:80/auth/google'
     }));
   })
   .run(function ($ionicPlatform) {

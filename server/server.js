@@ -67,7 +67,7 @@ mongoose.connection.on('error', function(err) {
 
 var app = express();
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 80);
 //app.use(cors());
 app.use(function(req, res, next) {
 
@@ -558,6 +558,8 @@ app.post('/auth/facebook', function(req, res) {
   request.get({ url: accessTokenUrl, qs: params, json: true }, function(err, response, accessToken) {
     if (response.statusCode !== 200) {
       return res.status(500).send({ message: accessToken.error.message });
+    }else{
+        console.log(accessToken);
     }
 
     // Step 2. Retrieve profile information about the current user.
